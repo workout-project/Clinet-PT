@@ -13,7 +13,7 @@ const Profile = () => {
     const { user } = useUserContext()
     const navigation = useNavigation()
 
-
+    console.log(details)
     useEffect(() => {
         const fetchData = async () => {
             await axios.get('http://localhost:8080/signupPT', {
@@ -53,9 +53,13 @@ const Profile = () => {
 
         <SafeAreaProvider>
             <Text>UserProfile: </Text>
-            <Text style={styles.nameBox}>First name: {details && (details.firstName)}</Text>
-            <Text style={styles.nameBox}>First name: {details && (details.lastName)}</Text>
-            
+            {/* <Text style={styles.nameBox}>First name: {details && (details.firstName)}</Text> */}
+            <Text style={styles.nameBox}>First name: {details && (Array.isArray(details) ? details[0].firstName : details.firstName) }</Text>
+            <Text style={styles.nameBox}>First name: {details && (Array.isArray(details) ? details[0].lastName : details.lastName)}</Text>
+            <Text style={styles.nameBox}>Email: {details && (Array.isArray(details) ? details[0].email : details.email)}</Text>
+            <Text style={styles.nameBox}>About you: {details && (Array.isArray(details) ? details[0].about : details.about)}</Text>
+
+
 
         </SafeAreaProvider>
     )

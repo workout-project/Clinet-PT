@@ -13,7 +13,7 @@ const Home = () => {
 
     }
   return (
-    <View>
+    <View style={styles.home}>
           <Text>Home</Text>
           <Button onPress={btnHandler} title='Log out' />
           <Button onPress={()=> navigation.navigate('Edit')} title='Update Profile' />
@@ -26,4 +26,8 @@ const Home = () => {
 
 export default Home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    home: {
+        backgroundColor: 'cyan'
+    }
+})

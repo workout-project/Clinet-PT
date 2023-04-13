@@ -14,8 +14,8 @@ const EditProfile = () => {
     const { dispatch, details } = useDetailsContext()
     const { user } = useUserContext();
     const { logout } = useLogout()
-    const [firstName, setFirstName] = useState()
-    const [lastName, setLastName] = useState()
+    const [firstName, setFirstName] = useState(user.firstName)
+    const [lastName, setLastName] = useState(user.lastName)
     const [about, setAbout] = useState()
     const [postcode, setPostcode] = useState()
     const [lat, setLat] = useState()
@@ -42,7 +42,7 @@ const EditProfile = () => {
 
 
         // const details = { latitude: lat, longitude: long, about, firstName, lastName }
-        const update = { latitude: lat, longitude: long, about, firstName, lastName }
+        const update = { latitude: lat, longitude: long, about, firstName, lastName}
         console.log(update)
 
         await axios.patch("http://localhost:8080/signupPT", update, {
