@@ -28,6 +28,6 @@ export default Home
 
 const styles = StyleSheet.create({
     home: {
-        backgroundColor: 'cyan'
+    backgroundColor: '#36013F'
     }
 })

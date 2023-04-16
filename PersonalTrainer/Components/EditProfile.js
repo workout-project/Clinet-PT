@@ -61,6 +61,7 @@ const EditProfile = () => {
             .catch((error) => console.log(error))
     }
     // console.log(details && (details.weight.toString()))
+    console.log('details',details)
 
     return (
 
@@ -68,9 +69,9 @@ const EditProfile = () => {
             <Text>UserProfile: </Text>
             <TextInput placeholder='First Name' defaultValue={user.firstName} label="First Name" style={styles.nameBox} onChangeText={(firstName) => setFirstName(firstName)} />
             <TextInput placeholder='Last Name' defaultValue={user.lastName} label="Last Name" style={styles.nameBox} onChangeText={(lastName) => setLastName(lastName)} />
-            <TextInput placeholder='Your postcode' style={styles.nameBox} onChangeText={(postcode) => setPostcode(postcode)} />
+            <TextInput placeholder='Your postcode' style={styles.nameBox}  onChangeText={(postcode) => setPostcode(postcode)} />
             <Button onPress={addressHandler} title='set address' />
-            <TextInput placeholder='Tell us about yourself' style={styles.nameBox} onChangeText={(about) => setAbout(about)} />
+            <TextInput placeholder='Tell us about yourself' style={styles.nameBox} defaultValue={details && (Array.isArray(details) ? details[0].about : details.about)} onChangeText={(about) => setAbout(about)} />
             <SafeAreaProvider>
                 
 
